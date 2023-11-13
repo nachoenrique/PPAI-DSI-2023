@@ -13,6 +13,8 @@ namespace PPAI_2023.Clases
         {
             Nombre = "Iniciada";
         }
+
+
         public override Estado buscaEstadoActual()
         {
             Estado nvoEstado = new EnCurso();
@@ -27,8 +29,10 @@ namespace PPAI_2023.Clases
         public override void tomadaPorOperador(DateTime date, Llamada llamada)
         {
             Estado nvoEstado = buscaEstadoActual();
-            CambioEstado cmbioEstado = new CambioEstado(date,nvoEstado);
-            llamada.agregar
+            CambioEstado cambioEstado = new CambioEstado(date,nvoEstado);
+            llamada.agregarCambioEstado(cambioEstado);
+            llamada.setEstadoActual(nvoEstado);
         }
+
     }
 }

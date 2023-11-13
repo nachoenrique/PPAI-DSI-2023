@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PPAI_2023.Clases
 {
-    public class Estado
+    public abstract class Estado
     {
         private string nombre;
 
@@ -19,40 +19,48 @@ namespace PPAI_2023.Clases
 
         public string Nombre { get => nombre; set => nombre = value; }
 
-        public bool esFinalizada() {
-            bool resultado = false;
 
-            if (nombre == "Finalizada")
-            {
-                resultado = true;
-            }
+        public abstract Estado buscaEstadoActual();
 
-            return resultado;
-        }
-        public void esIniciada() { }
-        public bool esEnCurso() {
-            bool resultado = false;
+        public abstract void finalizar(DateTime date, Llamada llamada);
 
-            if (nombre == "EnCurso")
-            {
-                resultado = true;
-            }
+        public abstract void tomadaPorOperador(DateTime date, Llamada llamada);
 
-            return resultado;
-        }
 
-        //ALTERNATIVAS
-        public bool esCancelada()
-        {
-            bool resultado = false;
+        //public bool esFinalizada() {
+        //    bool resultado = false;
 
-            if (nombre == "Cancelada")
-            {
-                resultado = true;
-            }
+        //    if (nombre == "Finalizada")
+        //    {
+        //        resultado = true;
+        //    }
 
-            return resultado;
-        }
+        //    return resultado;
+        //}
+        //public void esIniciada() { }
+        //public bool esEnCurso() {
+        //    bool resultado = false;
+
+        //    if (nombre == "EnCurso")
+        //    {
+        //        resultado = true;
+        //    }
+
+        //    return resultado;
+        //}
+
+        ////ALTERNATIVAS
+        //public bool esCancelada()
+        //{
+        //    bool resultado = false;
+
+        //    if (nombre == "Cancelada")
+        //    {
+        //        resultado = true;
+        //    }
+
+        //    return resultado;
+        //}
 
 
 

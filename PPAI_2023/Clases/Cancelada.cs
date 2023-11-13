@@ -8,6 +8,11 @@ namespace PPAI_2023.Clases
 {
     public class Cancelada : Estado
     {
+
+        public Cancelada()
+        {
+            Nombre = "Cancelada";
+        }
         public override Estado buscaEstadoActual()
         {
             throw new NotImplementedException();

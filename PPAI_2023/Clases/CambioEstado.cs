@@ -21,6 +21,7 @@ public class CambioEstado
         public CambioEstado() { }
 
         public DateTime FechaHoraInicio { get => fechaHoraInicio; set => fechaHoraInicio = value; }
+
         internal Estado Estado { get => estado; set => estado = value; }
 
         public void getNombreEstado() { }

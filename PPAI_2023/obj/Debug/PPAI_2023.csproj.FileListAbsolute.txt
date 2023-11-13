@@ -28,3 +28,13 @@ C:\Users\Mi\Downloads\PPAI-2023_v1\PPAI-2023\PPAI_2023\obj\Debug\PPAI_2023.cspro
 C:\Users\Mi\Downloads\PPAI-2023_v1\PPAI-2023\PPAI_2023\obj\Debug\PPAI_2023.csproj.CoreCompileInputs.cache
 C:\Users\Mi\Downloads\PPAI-2023_v1\PPAI-2023\PPAI_2023\obj\Debug\PPAI_2023.exe
 C:\Users\Mi\Downloads\PPAI-2023_v1\PPAI-2023\PPAI_2023\obj\Debug\PPAI_2023.pdb
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\bin\Debug\PPAI_2023.exe.config
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\bin\Debug\PPAI_2023.exe
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\bin\Debug\PPAI_2023.pdb
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\obj\Debug\PPAI_2023.csproj.AssemblyReference.cache
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\obj\Debug\PPAI_2023.PantallaRegistrarRespuesta.resources
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\obj\Debug\PPAI_2023.Properties.Resources.resources
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\obj\Debug\PPAI_2023.csproj.GenerateResource.cache
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\obj\Debug\PPAI_2023.csproj.CoreCompileInputs.cache
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\obj\Debug\PPAI_2023.exe
+C:\Users\Nacho\OneDrive\Documentos\utn-facultad\DSI-23\PPAI 2023 IVR-20230521\PPAI-2023-V4\PPAI_2023\obj\Debug\PPAI_2023.pdb

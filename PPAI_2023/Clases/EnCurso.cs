@@ -14,17 +14,21 @@ namespace PPAI_2023.Clases
         }
         public override Estado buscaEstadoActual()
         {
-            throw new NotImplementedException();
+            Estado nuevo = new Finalizada();
+            return nuevo;
         }
 
         public override void finalizar(DateTime date, Llamada llamada)
         {
-            throw new NotImplementedException();
+            Estado nuevoE = buscaEstadoActual(); 
+            CambioEstado nvoCE = new CambioEstado(date,nuevoE);
+            llamada.agregarCambioEstado(nvoCE);
+            llamada.setEstadoActual(nuevoE);
         }
 
         public override void tomadaPorOperador(DateTime date, Llamada llamada)
         {
-            buscaEstadoActual();
+            throw new NotImplementedException();
 
         }
     }

@@ -60,7 +60,7 @@ public class Llamada
         internal OpcionLlamada OpcionSeleccionada { get => opcionSeleccionada; set => opcionSeleccionada = value; }
 
         public void tomadaPorOperador(DateTime fechaHora) {
-            crearNuevoCambioEstado(fechaHora,this.estado);
+            estado.tomadaPorOperador(fechaHora, this);
         }
         public CambioEstado crearNuevoCambioEstado(DateTime fechaHora, Estado estado) {
             CambioEstado nuevoCambioEstado = new CambioEstado(fechaHora, estado);
@@ -95,8 +95,18 @@ public class Llamada
             return duracion.AddMinutes(calculo);
 
         }
-        public void finalizar(DateTime fechaHora, Estado estadoFinalizado) {
-            crearNuevoCambioEstado(fechaHora, estadoFinalizado);
+        public void finalizar(DateTime fechaHora) {
+            this.estado.finalizar(fechaHora,this);
+        }
+
+        public void agregarCambioEstado(CambioEstado nuevo)
+        {
+            ListaCambioEstado.Add(nuevo);
+        }
+
+        public void setEstadoActual(Estado estado)
+        {
+            this.estado = estado;
         }
 
 
@@ -106,10 +116,7 @@ public class Llamada
             crearNuevoCambioEstado(fechaHora, estadoCencelado);
         }
 
-        public void agregarCambioEstado (CambioEstado nuevo)
-        {
-            ListaCambioEstado.Add(nuevo);
-        }
+       
 
     }
 }

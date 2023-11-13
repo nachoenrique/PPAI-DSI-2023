@@ -55,12 +55,12 @@ public class GestorRegistarRespuesta
 
             
             pantallaRegistarRespuesta = pantalla;
-            listaEstados = new List<Estado>();
-            Estado estado1 = new Estado("EnCurso");
-            Estado estado2 = new Estado("Finalizada");
-            Estado estado3 = new Estado("Cancelada");
-            listaEstados.Add(estado1);
-            listaEstados.Add(estado2);
+            //listaEstados = new List<Estado>();
+            //Estado estado1 = new Estado("EnCurso");
+            //Estado estado2 = new Estado("Finalizada");
+            //Estado estado3 = new Estado("Cancelada");
+            //listaEstados.Add(estado1);
+            //listaEstados.Add(estado2);
 
 
         }
@@ -75,7 +75,7 @@ public class GestorRegistarRespuesta
 
 
             //PASO 2-Actualziamos llamada identificada a EnCurso
-            estadoEnCurso = buscarEstadoEnCurso();
+            //estadoEnCurso = buscarEstadoEnCurso();
             getFechaHoraActual();
             //tomadaPorOperador() metodo llamado igual que en la ME que hace cambiar el estado de la llamada a EnCurso
             llamadaActual.tomadaPorOperador(fechaHoraActual);
@@ -87,18 +87,18 @@ public class GestorRegistarRespuesta
         }
 
         //recorre la lista de estados hasta encontrar el estado EnCurso
-        public Estado buscarEstadoEnCurso() {
+        //public Estado buscarEstadoEnCurso() {
 
-             estadoEnCurso = new Estado();          
-            foreach(Estado estado in listaEstados)
-            {
-                if (estado.esEnCurso())
-                {
-                    estadoEnCurso = estado;
-                }              
-            }
-            return estadoEnCurso;
-        }
+        //     estadoEnCurso = new Estado();          
+        //    foreach(Estado estado in listaEstados)
+        //    {
+        //        if (estado.esEnCurso())
+        //        {
+        //            estadoEnCurso = estado;
+        //        }              
+        //    }
+        //    return estadoEnCurso;
+        //}
 
         //obtenemos la fecha y hora actual para registrarla en el cambio de estado
         public void getFechaHoraActual() {
@@ -137,11 +137,10 @@ public class GestorRegistarRespuesta
         //tomamos la confirmacion de la operacion, debemos llamar al CU28 y generar un nuevo cambio de estado
         public void tomarConfirmacion() {
             llamarCURegistrarAccionRequerida();
-            this.estadoFinalizado = buscarEstadoFinalizada();
-            
+        //    this.estadoFinalizado = buscarEstadoFinalizada();     
             this.duracionLlmada = llamadaActual.getDuracion(fechaHoraActual);
             getFechaHoraActual();
-            llamadaActual.finalizar(fechaHoraActual,estadoFinalizado);
+            llamadaActual.finalizar(fechaHoraActual);
             finCU();
         }
         public void llamarCURegistrarAccionRequerida() {
@@ -149,21 +148,22 @@ public class GestorRegistarRespuesta
         }
 
         //recorre la lista de estados hasta encontrar el estado Finalizada
-        public Estado buscarEstadoFinalizada() {
-            estadoFinalizado = new Estado();
+        //public Estado buscarEstadoFinalizada()
+        //{
+        //    estadoFinalizado = new Estado();
 
-            foreach (Estado estado in listaEstados)
-            {
-                if (estado.esFinalizada())
-                {
-                    estadoFinalizado = estado;
-                }
+        //    foreach (Estado estado in listaEstados)
+        //    {
+        //        if (estado.esFinalizada())
+        //        {
+        //            estadoFinalizado = estado;
+        //        }
 
-            }
+        //    }
 
-            return estadoFinalizado;
-        }
-        
+        //    return estadoFinalizado;
+        //}
+
         public void finCU() {
             pantallaRegistarRespuesta.Close();
         }
@@ -177,28 +177,28 @@ public class GestorRegistarRespuesta
         {
             
             getFechaHoraActual();
-            estadoCancelado = buscarEstadoCancelada();
+            //estadoCancelado = buscarEstadoCancelada();
             llamadaActual.cancelarLlamada(fechaHoraActual,estadoFinalizado);
             finCU();
             
         }
 
         //recorre la lista de estados hasta encontrar el estado Cancelada
-        public Estado buscarEstadoCancelada()
-        {
-            estadoCancelado = new Estado();
+        //public Estado buscarEstadoCancelada()
+        //{
+        //    estadoCancelado = new Estado();
 
-            foreach (Estado estado in listaEstados)
-            {
-                if (estado.esCancelada())
-                {
-                    estadoFinalizado = estado;
-                }
+        //    foreach (Estado estado in listaEstados)
+        //    {
+        //        if (estado.esCancelada())
+        //        {
+        //            estadoFinalizado = estado;
+        //        }
 
-            }
+        //    }
 
-            return estadoCancelado;
-        }
+        //    return estadoCancelado;
+        //}
 
     }
 }
