@@ -12,7 +12,6 @@ namespace PPAI_2023.Clases
         private string nombre;
         private int nroOrden;
         private List<OpcionValidacion> listaOpcionValidacion;
-
         private TipoInformacion tipo; 
 
         public Validacion(List<string> audioMensajeValidacion, string nombre, int nroOrden, List<OpcionValidacion> listaOpcionValidacion, TipoInformacion tipo)
@@ -41,5 +40,6 @@ namespace PPAI_2023.Clases
             return audioMensajeValidacion;
         
         }
+        public OpcionValidacion getPrimeraOpcion() { return listaOpcionValidacion[0]; }
     }
 }

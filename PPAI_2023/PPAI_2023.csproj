@@ -66,7 +66,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDatos\BDCliente.cs" />
     <Compile Include="AccesoDatos\BDConnection.cs" />
+    <Compile Include="AccesoDatos\BDInformacionCliente.cs" />
+    <Compile Include="AccesoDatos\BDValidacion.cs" />
     <Compile Include="Clases\Accion.cs" />
     <Compile Include="Clases\CambioEstado.cs" />
     <Compile Include="Clases\Cancelada.cs" />
