@@ -8,10 +8,10 @@ namespace PPAI_2023.Clases
 {
 public class Llamada
     {
-
+        private int id;
         private string descripcionOperador;
         private string detalleAccionRequerida;
-        private DateTime duracion;
+        private int duracion;
         private string encuestaEnviada;
         private string observacionAuditor;
         private List<RespuestaCliente> respuestaDeEncuesta;//0..*
@@ -24,10 +24,11 @@ public class Llamada
         private SubOpcionLlamada subOpcionSeleccionada;
         private OpcionLlamada opcionSeleccionada;
 
-        public Llamada(string descripcionOperador, string detalleAccionRequerida, DateTime duracion, string encuestaEnviada, string observacionAuditor, 
-            List<RespuestaCliente> respuestaDeEncuesta, List<CambioEstado> cambioEstado, Accion accionRespuesta, 
+        public Llamada(int id, string descripcionOperador, string detalleAccionRequerida, int duracion, string encuestaEnviada, string observacionAuditor, 
+            List<RespuestaCliente> respuestaDeEncuesta, List<CambioEstado> cambioEstado, Accion accionRespuesta, Estado estado,
             Cliente cliente, Usuario auditor, Usuario operador, SubOpcionLlamada subOpcionSeleccionada, OpcionLlamada opcionSeleccionada)
         {
+            this.id = id;
             this.descripcionOperador = descripcionOperador;
             this.detalleAccionRequerida = detalleAccionRequerida;
             this.duracion = duracion;
@@ -35,6 +36,7 @@ public class Llamada
             this.observacionAuditor = observacionAuditor;
             this.respuestaDeEncuesta = respuestaDeEncuesta;
             this.listaCambioEstado = cambioEstado;
+            this.estado = estado;
             this.estado = new Iniciada();
             this.accionRespuesta = accionRespuesta;
             this.cliente = cliente;
@@ -45,9 +47,10 @@ public class Llamada
         }
         public Llamada() { }
 
+        public int getId() { return id; }
         public string DescripcionOperador { get => descripcionOperador; set => descripcionOperador = value; }
         public string DetalleAccionRequerida { get => detalleAccionRequerida; set => detalleAccionRequerida = value; }
-        public DateTime Duracion { get => duracion; set => duracion = value; }
+        public int Duracion { get => duracion; set => duracion = value; }
         public string EncuestaEnviada { get => encuestaEnviada; set => encuestaEnviada = value; }
         public string ObservacionAuditor { get => observacionAuditor; set => observacionAuditor = value; }
         internal List<RespuestaCliente> RespuestaDeEncuesta { get => respuestaDeEncuesta; set => respuestaDeEncuesta = value; }
@@ -78,21 +81,21 @@ public class Llamada
             return cliente.esInformacionCorrecta(res);
         }
 
-        public DateTime getDuracion(DateTime horaInicio)
+        public int getDuracion(DateTime horaInicio)
         {
             DateTime horaFin = DateTime.Now;
             return calcularDuracion(horaInicio,horaFin);
 
         }
-        public DateTime calcularDuracion(DateTime inicio, DateTime fin) {
+        public int calcularDuracion(DateTime inicio, DateTime fin) {
 
             
             int minutosIn = inicio.Minute;
             int minFin = fin.Minute;
             int calculo = minFin - minutosIn;
-            duracion = new DateTime();
+            duracion = calculo;
             
-            return duracion.AddMinutes(calculo);
+            return duracion;
 
         }
         public void finalizar(DateTime fechaHora) {

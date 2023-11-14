@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAI_2023.AccesoDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,16 @@ namespace PPAI_2023.Clases
             CambioEstado cambioEstado = new CambioEstado(date,nvoEstado);
             llamada.agregarCambioEstado(cambioEstado);
             llamada.setEstadoActual(nvoEstado);
+            int idEstado;
+            switch (nvoEstado.Nombre)
+            {
+                case "Iniciada": idEstado = 1; break;
+                case "EnCurso": idEstado = 2; break;
+                case "Cancelada": idEstado = 3; break;
+                default: idEstado = 4; break;
+            }
+            BDLlamada.UpdateLlamada(llamada.getId(), idEstado, llamada.DescripcionOperador);
+            BDCambioEstado.InsertCambioNuevo(idEstado, date, llamada.getId());
         }
-
     }
 }

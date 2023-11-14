@@ -23,7 +23,7 @@ public class GestorRegistarRespuesta
         private List<Validacion> mensajesValidacion;
         private OpcionValidacion opcionDeValidacionSeleccionada;
         private List<RespuestaCliente> respuestaSeleccionadas;
-        private DateTime duracionLlmada;
+        private int duracionLlmada;
         private DateTime fechaHoraActual;
         private string nombreCliente;
         private List<Estado> listaEstados;
@@ -32,7 +32,7 @@ public class GestorRegistarRespuesta
         
 
 
-        public DateTime DuracionLlmada { get => duracionLlmada; set => duracionLlmada = value; }
+        public int DuracionLlmada { get => duracionLlmada; set => duracionLlmada = value; }
         public DateTime FechaHoraActual { get => fechaHoraActual; set => fechaHoraActual = value; }
         public string NombreCliente { get => nombreCliente; set => nombreCliente = value; }
         internal Llamada LlamadaActual { get => llamadaActual; set => llamadaActual = value; }
@@ -140,6 +140,7 @@ public class GestorRegistarRespuesta
         //    this.estadoFinalizado = buscarEstadoFinalizada();     
             this.duracionLlmada = llamadaActual.getDuracion(fechaHoraActual);
             getFechaHoraActual();
+            llamadaActual.DescripcionOperador = descripcion;
             llamadaActual.finalizar(fechaHoraActual);
             finCU();
         }

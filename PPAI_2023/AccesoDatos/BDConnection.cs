@@ -8,14 +8,13 @@ using System.Data;
 
 namespace PPAI_2023.AccesoDatos
 {
-    // TODO que nombre no sea public por favor
     public class BDConnection
     {
         private static SQLiteConnection conn;
         public static SQLiteConnection CreateConnection()
         {
             // PONER EL PATH ABSOLUTO HACIA DONDE ESTA LA DB EN TU PC
-            String path = "C:\\Users\\Franco\\Desktop\\tpiDSI\\AppRegIngRTMantCorrec\\WindowsFormsApp1\\BBDD\\PPAIDB.db";
+            String path = "C:\\Users\\Franco\\Desktop\\PPAI-DSI-2023\\PPAI_2023\\AccesoDatos\\ivr_db.db";
             conn = new SQLiteConnection("Datasource=" + path + ";Version=3;New=True;Compress=True;");
 
             try
