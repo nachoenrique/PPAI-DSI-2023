@@ -28,7 +28,7 @@ namespace PPAI_2023.AccesoDatos
         {
             int dni = Convert.ToInt32(fila["dni"].ToString());
             string nombre = fila["nombre_completo"].ToString();
-            int tel = Convert.ToInt32(fila["nro_celular"].ToString());
+            int tel = (int)Convert.ToInt64(fila["nro_celular"].ToString());
             List<InformacionCliente> infs = BDInformacionCliente.getInfosCliente(dni);
 
             Cliente cli = new Cliente(dni, nombre, tel, infs);

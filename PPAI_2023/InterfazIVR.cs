@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PPAI_2023.AccesoDatos;
 using PPAI_2023.Clases;
 
 namespace PPAI_2023
@@ -55,7 +57,7 @@ namespace PPAI_2023
 
 
 
-
+            
             //Primera SubOpcion
             //tipoInfoValidacion
             TipoInformacion tipoInfoSub = new TipoInformacion("fecha Nacimiento");
@@ -72,13 +74,10 @@ namespace PPAI_2023
 
             List<string> listaMensajesFechas = new List<string>();
             listaMensajesFechas.Add("12 de Julio de 1983");
-            listaMensajesFechas.Add("12 de diciembre de 19883");
+            listaMensajesFechas.Add("12 de diciembre de 1983");
             listaMensajesFechas.Add("12 octubre de 1983");
 
-            //ValidacionSubOpcion
-
-
-            Validacion validacionSubOp = new Validacion(listaMensajesFechas, "Fecha de Nacimiento", 1, listaOpcionesVal, tipoInfoSub);
+            
 
             //Segunda SubOpcion
 
@@ -99,7 +98,10 @@ namespace PPAI_2023
             listaMensajesCodigo.Add("3663");
             listaMensajesCodigo.Add("6060");
             listaMensajesCodigo.Add("5986");
+            //ValidacionSubOpcion
 
+
+            Validacion validacionSubOp = new Validacion(listaMensajesFechas, "Fecha de Nacimiento", 1, listaOpcionesVal, tipoInfoSub);
             Validacion validacionSubOp2 = new Validacion(listaMensajesCodigo, "Codigo Postal", 2, listaOpcionesVal2, tipoInfoSub2);
 
             List<Validacion> listaValidacionSub = new List<Validacion>();
@@ -113,33 +115,39 @@ namespace PPAI_2023
             List<SubOpcionLlamada> listaSubOpciones = new List<SubOpcionLlamada>();//todas las subopciones que hay por opcion
             listaSubOpciones.Add(subOpSeleccionada);
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+            
 
 
 
 
             //ValidacionOpcion
            
+            // las traen las opciones y subopciones cuando las materializa la llamada
             List<Validacion> listaValidacionOpcion = new List<Validacion>();
             
 
             //OPCION
+            // lo trae la llamada
             opcionSeleccionada = new OpcionLlamada("audoMensaje","mensaje","Solicitar tarjeta nueva",1,listaSubOpciones,listaValidacionOpcion);
 
+
+            // estas las levanta directamente cuando materializa la categoria (abajo)
             List<OpcionLlamada> listaOpciones = new List<OpcionLlamada>();//todas las opciones que tiene la catgoria
             listaOpciones.Add(opcionSeleccionada);
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             //categoria
-            categoriaSeleccionada = new CategoriaLlamada("audio","mensaje","Robo",1,listaOpciones);//esta lista opciones esta vacia xq no la vamos a llamar ya que sabemos cual es la opcion seleccionada
-
+            //categoriaSeleccionada = new CategoriaLlamada("audio","mensaje","Robo",1,listaOpciones);//esta lista opciones esta vacia xq no la vamos a llamar ya que sabemos cual es la opcion seleccionada
+            
+            categoriaSeleccionada = BDCategoria.GetCategoria(1);
 
             //llamada
-            duracion = new DateTime();
-            llamadaActual = new Llamada("descripcion","detalle",duracion,"encuesta","observacion", listaRespuesta, listacambioEstado,accionRequerida,
-                clienteLlamada, auditor, operador,subOpSeleccionada,opcionSeleccionada);
+            int duracion = 150;
+            Iniciada estado = new Iniciada();
+            //llamadaActual = new Llamada(15,"descripcion","detalle",duracion,"encuesta","observacion", listaRespuesta, listacambioEstado,accionRequerida,
+            //estado, clienteLlamada, auditor, operador,subOpSeleccionada,opcionSeleccionada);
+            llamadaActual = BDLlamada.GetLlamada(1);
 
-            
             //le paso la inforamcion al gestor
             gestor.nuevaRtaOperador(llamadaActual, categoriaSeleccionada, opcionSeleccionada, subOpSeleccionada);
 

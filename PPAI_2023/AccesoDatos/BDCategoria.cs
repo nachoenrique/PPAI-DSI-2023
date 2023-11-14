@@ -10,6 +10,19 @@ namespace PPAI_2023.AccesoDatos
 {
     public class BDCategoria
     {
+        public static CategoriaLlamada GetCategoria(int nroOrden)
+        {
+            var cat = new CategoriaLlamada();
+            string sentenciaSql = $"SELECT * FROM CATEGORIAS WHERE nro_orden = {nroOrden}";
+            var tablaResultado = BDConnection.ReadData(sentenciaSql);
+
+            foreach (DataRow fila in tablaResultado.Rows)
+            {
+                cat = MapearCategoria(fila);
+            }
+
+            return cat;
+        }
 
         private static CategoriaLlamada MapearCategoria(DataRow fila)
         {

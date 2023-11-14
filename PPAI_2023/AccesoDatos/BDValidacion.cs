@@ -59,7 +59,7 @@ namespace PPAI_2023.AccesoDatos
         {
             int nro = Convert.ToInt32(fila["nro_orden"].ToString());
             string nombre = fila["nombre"].ToString();
-            List<string> audio = fila["audio_mensaje_validacion"].ToString().Split('/').ToList();
+            List<string> audio = fila["audio_mensaje_validacion"].ToString().Split('-').ToList();
             List<OpcionValidacion> opcs = new List<OpcionValidacion>();
             bool prim = true;
             foreach (string s in audio)
