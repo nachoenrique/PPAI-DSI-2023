@@ -11,6 +11,12 @@ namespace PPAI_2023.AccesoDatos
     public class BDCambioEstado
     {
 
+        public static void InsertCambioNuevo(int idEstado, DateTime fechaHoraInicio, int idLlamada)
+        {
+            string sentenciaSql = $"INSERT INTO CAMBIOS_ESTADO (llamada, estado, fecha_hora_inicio) VALUES ( {idLlamada},{idEstado}, \"{fechaHoraInicio.ToString()}\")";
+            BDConnection.InsertData(sentenciaSql);
+        }
+
         public static List<CambioEstado> GetCambiosLlamada(int id)
         {
             var cams = new List<CambioEstado>();

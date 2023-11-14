@@ -10,6 +10,13 @@ namespace PPAI_2023.AccesoDatos
 {
     public class BDLlamada
     {
+
+        public static void UpdateLlamada(int id, int idEstado, string desc)
+        {
+            string sentenciaSql = $"UPDATE LLAMADAS SET estado = {idEstado}, descripcion_operador = \"{desc}\"  WHERE id = {id}";
+            BDConnection.UpdateData(sentenciaSql);
+        }
+
         public static Llamada GetLlamada(int id)
         {
             var llamada = new Llamada();

@@ -141,20 +141,22 @@ namespace PPAI_2023
 
             //categoria
             //categoriaSeleccionada = new CategoriaLlamada("audio","mensaje","Robo",1,listaOpciones);//esta lista opciones esta vacia xq no la vamos a llamar ya que sabemos cual es la opcion seleccionada
-            
-            categoriaSeleccionada = BDCategoria.GetCategoria(1);
+
+
 
             //llamada
-            int duracion = 150;
-            Iniciada estado = new Iniciada();
+            //int duracion = 150;
+            //Iniciada estado = new Iniciada();
             //llamadaActual = new Llamada(15,"descripcion","detalle",duracion,"encuesta","observacion", listaRespuesta, listacambioEstado,accionRequerida,
             //estado, clienteLlamada, auditor, operador,subOpSeleccionada,opcionSeleccionada);
+
+
+            categoriaSeleccionada = BDCategoria.GetCategoria(1);
             llamadaActual = BDLlamada.GetLlamada(15);
 
             //le paso la inforamcion al gestor
             gestor.nuevaRtaOperador(llamadaActual, categoriaSeleccionada, llamadaActual.OpcionSeleccionada, llamadaActual.SubOpcionSeleccionada);
 
         }
-
     }
 }

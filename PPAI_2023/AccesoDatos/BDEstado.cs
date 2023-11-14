@@ -11,6 +11,9 @@ namespace PPAI_2023.AccesoDatos
 {
     public class BDEstado
     {
+
+
+
         public static Estado getEstadoLlamada(int id)
         {
             switch (id)

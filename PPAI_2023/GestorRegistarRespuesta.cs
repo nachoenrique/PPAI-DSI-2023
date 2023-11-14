@@ -140,6 +140,7 @@ public class GestorRegistarRespuesta
         //    this.estadoFinalizado = buscarEstadoFinalizada();     
             this.duracionLlmada = llamadaActual.getDuracion(fechaHoraActual);
             getFechaHoraActual();
+            llamadaActual.DescripcionOperador = descripcion;
             llamadaActual.finalizar(fechaHoraActual);
             finCU();
         }
