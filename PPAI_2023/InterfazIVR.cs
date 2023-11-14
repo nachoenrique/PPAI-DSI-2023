@@ -27,8 +27,9 @@ namespace PPAI_2023
         public InterfazIVR(PantallaRegistrarRespuesta pantalla)
         {
 
-             gestor = new GestorRegistarRespuesta(pantalla);
+            gestor = new GestorRegistarRespuesta(pantalla);
 
+            /*
             List<RespuestaCliente> listaRespuesta = new List<RespuestaCliente>();
             List<CambioEstado> listacambioEstado = new List<CambioEstado>();
             Accion accionRequerida = new Accion();
@@ -136,6 +137,8 @@ namespace PPAI_2023
             listaOpciones.Add(opcionSeleccionada);
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+            */
+
             //categoria
             //categoriaSeleccionada = new CategoriaLlamada("audio","mensaje","Robo",1,listaOpciones);//esta lista opciones esta vacia xq no la vamos a llamar ya que sabemos cual es la opcion seleccionada
             
@@ -146,10 +149,10 @@ namespace PPAI_2023
             Iniciada estado = new Iniciada();
             //llamadaActual = new Llamada(15,"descripcion","detalle",duracion,"encuesta","observacion", listaRespuesta, listacambioEstado,accionRequerida,
             //estado, clienteLlamada, auditor, operador,subOpSeleccionada,opcionSeleccionada);
-            llamadaActual = BDLlamada.GetLlamada(1);
+            llamadaActual = BDLlamada.GetLlamada(15);
 
             //le paso la inforamcion al gestor
-            gestor.nuevaRtaOperador(llamadaActual, categoriaSeleccionada, opcionSeleccionada, subOpSeleccionada);
+            gestor.nuevaRtaOperador(llamadaActual, categoriaSeleccionada, llamadaActual.OpcionSeleccionada, llamadaActual.SubOpcionSeleccionada);
 
         }
 
