@@ -8,7 +8,7 @@ namespace PPAI_2023.Clases
 {
 public class Llamada
     {
-
+        private int id;
         private string descripcionOperador;
         private string detalleAccionRequerida;
         private DateTime duracion;
@@ -24,10 +24,11 @@ public class Llamada
         private SubOpcionLlamada subOpcionSeleccionada;
         private OpcionLlamada opcionSeleccionada;
 
-        public Llamada(string descripcionOperador, string detalleAccionRequerida, DateTime duracion, string encuestaEnviada, string observacionAuditor, 
+        public Llamada(int id, string descripcionOperador, string detalleAccionRequerida, DateTime duracion, string encuestaEnviada, string observacionAuditor, 
             List<RespuestaCliente> respuestaDeEncuesta, List<CambioEstado> cambioEstado, Accion accionRespuesta, 
             Cliente cliente, Usuario auditor, Usuario operador, SubOpcionLlamada subOpcionSeleccionada, OpcionLlamada opcionSeleccionada)
         {
+            this.id = id;
             this.descripcionOperador = descripcionOperador;
             this.detalleAccionRequerida = detalleAccionRequerida;
             this.duracion = duracion;
@@ -45,6 +46,7 @@ public class Llamada
         }
         public Llamada() { }
 
+        public int getId() { return id; }
         public string DescripcionOperador { get => descripcionOperador; set => descripcionOperador = value; }
         public string DetalleAccionRequerida { get => detalleAccionRequerida; set => detalleAccionRequerida = value; }
         public DateTime Duracion { get => duracion; set => duracion = value; }
